@@ -1,0 +1,60 @@
+div {
+  justify-content: center;
+  display: flex;
+}
+
+td {
+  border: 1px solid;
+  padding: 20px; /* Añade un espacio interno para que la tabla sea más grande */
+}
+
+#botones {
+  margin-top: 2%;
+  display: flex;
+}
+button {
+  margin: 1%;
+}
+body {
+  background-color: teal;
+}
+table {
+  background-color: white;
+}
+.tetris-effect {
+  font-size: 3rem; /* Tamaño de fuente deseado */
+  font-family: "Arial", sans-serif; /* Fuente deseada */
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #00ff00,
+    #0000ff,
+    #ffff00,
+    #ff00ff,
+    #00ffff
+  ); /* Colores de fondo en gradiente */
+  -webkit-background-clip: text; /* Aplica el fondo al texto (necesario para Webkit, como Chrome y Safari) */
+  background-clip: text;
+  color: transparent; /* Hace que el color del texto sea transparente */
+  animation: tetris 10s linear infinite; /* Animación */
+}
+
+@keyframes tetris {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: 0px;
+  font-family: "Baloo";
+  font-weight: bold;
+  font-size: medium;
+  color: azure;
+}
+
+
