@@ -61,6 +61,15 @@ function empieza() {
 }
 // Desplaza la figura a la derecha
 function dere() {
+  color1 = "rgb(0, 0, 0)";
+  color2 = "rgb(0, 0, 0)";
+  color3 = "rgb(0, 0, 0)";
+  color4 = "rgb(0, 0, 0)";
+  estilo1 = "";
+  estilo2 = "";
+  estilo3 = "";
+  estilo4 = "";
+
   if (fila4 < 9) {
     fila1 = fila1 + 1;
     fila2 = fila2 + 1;
@@ -76,10 +85,24 @@ function dere() {
     tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
     tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
     tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+    estilo3 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 + 1]);
+    color3 = estilo3.backgroundColor;
+
+    estilo4 = window.getComputedStyle(tabla.rows[columna4].cells[fila4 + 1]);
+    color4 = estilo4.backgroundColor;
+
+    console.log(color4);
+
+    if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
+      derecha.style.visibility = "hidden";
+    }
   }
 }
 
 // Desaplaza da figura a la izquierda
+
+//NO ME VA 
 
 function izqui() {
   if (fila1 > 0) {
@@ -97,6 +120,20 @@ function izqui() {
     tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
     tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
     tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+
+    estilo1 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 - 1]);
+    color1 = estilo1.backgroundColor;
+
+    estilo2 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
+    color2 = estilo2.backgroundColor;
+
+    console.log(color2);
+
+    if (color1 === "rgb(0, 0, 255)" || color2 === "rgb(0, 0, 255)") {
+      izquierda.style.visibility = "hidden";
+    }
+
   }
 }
 // Función para mover la figura hacia abajo
@@ -130,9 +167,15 @@ function aba() {
 
       estilo4 = window.getComputedStyle(tabla.rows[columna4 + 1].cells[fila4]);
       color4 = estilo4.backgroundColor;
+
+      estilo5 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 + 1]);
+      color5 = estilo5.backgroundColor;
+
+      estilo6 = window.getComputedStyle(tabla.rows[columna4].cells[fila4 + 1]);
+      color6 = estilo6.backgroundColor;
     }
 
-    console.log(color3);
+    console.log(color6);
 
     if (
       columna4 == 9 ||
@@ -145,6 +188,9 @@ function aba() {
       abajo.style.visibility = "hidden";
       rotar.style.visibility = "hidden";
       izquierda.style.visibility = "hidden";
+      // Si el que esta a la derecha es azul que no te deje mover a la derecha
+    } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+      derecha.style.visibility = "hidden";
     }
   }
 }
