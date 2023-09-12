@@ -3,6 +3,7 @@ boton = document.getElementById("boton");
 derecha = document.getElementById("derecha");
 abajo = document.getElementById("abajo");
 rotar = document.getElementById("rotar");
+tetris = document.getElementById("tetris");
 
 numRotado = 0;
 
@@ -36,6 +37,25 @@ for (var i = 0; i < 10; i++) {
 
 //Funcion pone la primera figura cuando se pulsa el boton de empezar
 function empieza() {
+  //declarar las variables para que no de errores con los if
+
+  color1 = "rgb(0, 0, 0)";
+  color2 = "rgb(0, 0, 0)";
+  color3 = "rgb(0, 0, 0)";
+  color4 = "rgb(0, 0, 0)";
+  color5 = "";
+  color6 = "";
+  color7 = "";
+  color8 = "";
+  estilo1 = "";
+  estilo2 = "";
+  estilo3 = "";
+  estilo4 = "";
+  estilo5 = "";
+  estilo6 = "";
+  estilo7 = "";
+  estilo8 = "";
+
   derecha.style.visibility = "visible";
   abajo.style.visibility = "visible";
   rotar.style.visibility = "visible";
@@ -58,6 +78,64 @@ function empieza() {
   tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
   tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
   tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+  //Este if tiene las mismas condiciones que el if del metodo bajar y si en esta caso cuando se le da a empezar aparece la ficha arriba sin dejar movernos es porque se ha acabado
+
+  if (columna4 < 9) {
+    //Para cada uno ya que no me deja poner mas de una celda en los estilos
+    estilo1 = window.getComputedStyle(tabla.rows[columna1 + 2].cells[fila1]);
+    color1 = estilo1.backgroundColor;
+
+    estilo2 = window.getComputedStyle(tabla.rows[columna2 + 1].cells[fila2]);
+    color2 = estilo2.backgroundColor;
+
+    estilo3 = window.getComputedStyle(tabla.rows[columna3 + 1].cells[fila3]);
+    color3 = estilo3.backgroundColor;
+
+    estilo4 = window.getComputedStyle(tabla.rows[columna4 + 1].cells[fila4]);
+    color4 = estilo4.backgroundColor;
+  }
+
+  if (fila4 < 9) {
+    //No me deje mover a la derecha
+    estilo5 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 + 1]);
+    color5 = estilo5.backgroundColor;
+
+    estilo6 = window.getComputedStyle(tabla.rows[columna4].cells[fila4 + 1]);
+    color6 = estilo6.backgroundColor;
+  }
+  //No me deje mover a la izquierda
+  if (fila1 > 0) {
+    estilo7 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 - 1]);
+    color7 = estilo7.backgroundColor;
+
+    estilo8 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
+    color8 = estilo8.backgroundColor;
+  }
+  console.log("Color6 : " + color6);
+
+  if (
+    columna4 == 9 ||
+    color1 === "rgb(0, 0, 255)" ||
+    color2 === "rgb(0, 0, 255)" ||
+    color3 === "rgb(0, 0, 255)" ||
+    color4 === "rgb(0, 0, 255)"
+  ) {
+    tetris.innerHTML = "Juego finalizado";
+    derecha.style.visibility = "hidden";
+    abajo.style.visibility = "hidden";
+    rotar.style.visibility = "hidden";
+    izquierda.style.visibility = "hidden";
+
+    // Recarga la página a los 10 segundos para volver a jugar
+
+    setInterval("location.reload()", 10000);
+    // Si el que esta a la derecha es azul que no te deje mover a la derecha
+  } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+    derecha.style.visibility = "hidden";
+  } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
+    izquierda.style.visibility = "hidden";
+  }
 }
 // Desplaza la figura a la derecha
 function dere() {
@@ -92,8 +170,6 @@ function dere() {
     estilo4 = window.getComputedStyle(tabla.rows[columna4].cells[fila4 + 1]);
     color4 = estilo4.backgroundColor;
 
-    console.log(color4);
-
     if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
       derecha.style.visibility = "hidden";
     }
@@ -101,8 +177,6 @@ function dere() {
 }
 
 // Desaplaza da figura a la izquierda
-
-//NO ME VA 
 
 function izqui() {
   if (fila1 > 0) {
@@ -121,23 +195,25 @@ function izqui() {
     tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
     tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
 
-
     estilo1 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 - 1]);
     color1 = estilo1.backgroundColor;
 
     estilo2 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
     color2 = estilo2.backgroundColor;
 
-    console.log(color2);
-
     if (color1 === "rgb(0, 0, 255)" || color2 === "rgb(0, 0, 255)") {
       izquierda.style.visibility = "hidden";
     }
-
   }
 }
 // Función para mover la figura hacia abajo
 function aba() {
+  color5 = "";
+  color6 = "";
+
+  color7 = "";
+  color8 = "";
+
   if (columna4 < 9) {
     columna1 = columna1 + 1;
     columna2 = columna2 + 1;
@@ -167,15 +243,25 @@ function aba() {
 
       estilo4 = window.getComputedStyle(tabla.rows[columna4 + 1].cells[fila4]);
       color4 = estilo4.backgroundColor;
+    }
 
+    if (fila4 < 9) {
+      //No me deje mover a la derecha
       estilo5 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 + 1]);
       color5 = estilo5.backgroundColor;
 
       estilo6 = window.getComputedStyle(tabla.rows[columna4].cells[fila4 + 1]);
       color6 = estilo6.backgroundColor;
     }
+    //No me deje mover a la izquierda
+    if (fila1 > 0) {
+      estilo7 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 - 1]);
+      color7 = estilo7.backgroundColor;
 
-    console.log(color6);
+      estilo8 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
+      color8 = estilo8.backgroundColor;
+    }
+    console.log("Color6 : " + color6);
 
     if (
       columna4 == 9 ||
@@ -191,6 +277,8 @@ function aba() {
       // Si el que esta a la derecha es azul que no te deje mover a la derecha
     } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
       derecha.style.visibility = "hidden";
+    } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
+      izquierda.style.visibility = "hidden";
     }
   }
 }
