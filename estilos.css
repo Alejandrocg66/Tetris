@@ -16,7 +16,7 @@ button {
   margin: 1%;
 }
 body {
-  background-color:cadetblue;
+  background-color: cadetblue;
 }
 table {
   background-color: white;
@@ -55,4 +55,35 @@ button {
   font-weight: bold;
   font-size: medium;
   color: azure;
+}
+
+/* Estilo para el despegable */
+
+#dificultad {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 30%;
+}
+select,
+option {
+  position: absolute;
+  margin-top: 25%;
+}
+h2 {
+  font-size: xx-large;
+  font-family: "Arial", sans-serif; /* Fuente deseada */
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #00ff00,
+    #0000ff,
+    #ffff00,
+    #ff00ff,
+    #00ffff
+  );
+  -webkit-background-clip: text; /* Aplica el fondo al texto (necesario para Webkit, como Chrome y Safari) */
+  background-clip: text;
+  color: transparent; /* Hace que el color del texto sea transparente */
+  animation: tetris 10s linear infinite; /* Animación */
 }

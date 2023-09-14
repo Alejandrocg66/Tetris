@@ -1,9 +1,12 @@
 contenedor = document.getElementById("contenedor");
 boton = document.getElementById("boton");
 derecha = document.getElementById("derecha");
-abajo = document.getElementById("abajo");
-rotar = document.getElementById("rotar");
+//rotar = document.getElementById("rotar");
 tetris = document.getElementById("tetris");
+keyleft = true;
+keyright = true;
+aptoMover = false;
+empezarNueva = true;
 
 numRotado = 0;
 
@@ -37,7 +40,9 @@ for (var i = 0; i < 10; i++) {
 
 //Funcion pone la primera figura cuando se pulsa el boton de empezar
 function empieza() {
-  //declarar las variables para que no de errores con los if
+  aptoMover = true;
+
+  //Declarar las variables para que no de errores con los if
 
   color1 = "rgb(0, 0, 0)";
   color2 = "rgb(0, 0, 0)";
@@ -56,10 +61,14 @@ function empieza() {
   estilo7 = "";
   estilo8 = "";
 
+  //Al principio siempre visible los botones
   derecha.style.visibility = "visible";
-  abajo.style.visibility = "visible";
-  rotar.style.visibility = "visible";
+  //rotar.style.visibility = "visible";
   izquierda.style.visibility = "visible";
+
+  //Al principio simepre se puede mover
+  keyleft = true;
+  keyright = true;
 
   //Posiciones inicales de las columnas
   columna1 = 0;
@@ -112,7 +121,6 @@ function empieza() {
     estilo8 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
     color8 = estilo8.backgroundColor;
   }
-  console.log("Color6 : " + color6);
 
   if (
     columna4 == 9 ||
@@ -123,9 +131,13 @@ function empieza() {
   ) {
     tetris.innerHTML = "Juego finalizado";
     derecha.style.visibility = "hidden";
-    abajo.style.visibility = "hidden";
-    rotar.style.visibility = "hidden";
+    //rotar.style.visibility = "hidden";
     izquierda.style.visibility = "hidden";
+    aptoMover = false;
+
+    //Desactiva las fechas de teclado
+    keyleft = false;
+    keyright = false;
 
     // Recarga la página a los 10 segundos para volver a jugar
 
@@ -133,8 +145,10 @@ function empieza() {
     // Si el que esta a la derecha es azul que no te deje mover a la derecha
   } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
     derecha.style.visibility = "hidden";
+    keyright = false;
   } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
     izquierda.style.visibility = "hidden";
+    keyleft = false;
   }
 }
 // Desplaza la figura a la derecha
@@ -172,6 +186,7 @@ function dere() {
 
     if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
       derecha.style.visibility = "hidden";
+      keyright = false;
     }
   }
 }
@@ -203,6 +218,8 @@ function izqui() {
 
     if (color1 === "rgb(0, 0, 255)" || color2 === "rgb(0, 0, 255)") {
       izquierda.style.visibility = "hidden";
+      //Desactiva las fechas de teclado
+      keyleft = false;
     }
   }
 }
@@ -261,7 +278,6 @@ function aba() {
       estilo8 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
       color8 = estilo8.backgroundColor;
     }
-    console.log("Color6 : " + color6);
 
     if (
       columna4 == 9 ||
@@ -271,14 +287,22 @@ function aba() {
       color4 === "rgb(0, 0, 255)"
     ) {
       derecha.style.visibility = "hidden";
-      abajo.style.visibility = "hidden";
-      rotar.style.visibility = "hidden";
+      //rotar.style.visibility = "hidden";
       izquierda.style.visibility = "hidden";
+      aptoMover = false;
+
+      //Desactiva las fechas de teclado
+      keyleft = false;
+      keyright = false;
+      //Cada vez que la pieza toca con otra por abajo saca otra pieza nueva
+      empieza();
       // Si el que esta a la derecha es azul que no te deje mover a la derecha
     } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
       derecha.style.visibility = "hidden";
+      keyright = false;
     } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
       izquierda.style.visibility = "hidden";
+      keyleft = false;
     }
   }
 }
@@ -350,7 +374,7 @@ function rota() {
       tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
       tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
 
-      numRotado = 3;
+      numRotado++;
 
       break;
 
@@ -380,36 +404,70 @@ function rota() {
 }
 
 //Para manejarlo con las teclas, este metodo no da fallo aunque se siga pulsando al llegar a los limites de la pantalla ya que en cada metodo esta controlado con un if los limites de la pantalla.
-//Mueve para abajo
+
+//Mueve a la izquierda
 
 document.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowDown" && columna4 < 9) {
-    aba();
-  }
-});
-//Mueve a la izquierda
-document.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowLeft" && columna4 < 9) {
+  if (event.key == "ArrowLeft" && columna4 < 9 && keyleft == true) {
     izqui();
   }
 });
 
 //Mueve a la derecha
 document.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowRight" && columna4 < 9) {
+  if (event.key == "ArrowRight" && columna4 < 9 && keyright == true) {
     dere();
   }
 });
 //Rota
+/*
 document.addEventListener("keydown", function (event) {
   if (event.key == " " && columna4 < 9) {
     rota();
   }
 });
+*/
 
 // Para manerjarlo con los botones
-boton.addEventListener("click", empieza);
+
+boton.addEventListener("click", function () {
+  //Para saber la dificultad
+  select = document.getElementById("select");
+  indice = select.selectedIndex;
+  opcion = select.options[indice];
+  nivel = opcion.value;
+  empieza();
+  switch (nivel) {
+    case "facil":
+      setInterval(function () {
+        if (aptoMover == true) {
+          aba();
+        }
+      }, 1000);
+      break;
+    case "media":
+      setInterval(function () {
+        if (aptoMover == true) {
+          aba();
+        }
+      }, 500);
+      break;
+    case "dificil":
+      setInterval(function () {
+        if (aptoMover == true) {
+          aba();
+        }
+      }, 200);
+      break;
+    case "extrema":
+      setInterval(function () {
+        if (aptoMover == true) {
+          aba();
+        }
+      }, 90);
+      break;
+  }
+});
 derecha.addEventListener("click", dere);
 izquierda.addEventListener("click", izqui);
-abajo.addEventListener("click", aba);
-rotar.addEventListener("click", rota);
+//rotar.addEventListener("click", rota);
