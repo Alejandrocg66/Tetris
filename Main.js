@@ -3,6 +3,8 @@ boton = document.getElementById("boton");
 derecha = document.getElementById("derecha");
 //rotar = document.getElementById("rotar");
 tetris = document.getElementById("tetris");
+reiniciar = document.getElementById("reiniciar");
+
 keyleft = true;
 keyright = true;
 aptoMover = false;
@@ -437,6 +439,7 @@ boton.addEventListener("click", function () {
   opcion = select.options[indice];
   nivel = opcion.value;
   empieza();
+  boton.style.visibility = "hidden";
   switch (nivel) {
     case "facil":
       setInterval(function () {
@@ -468,6 +471,10 @@ boton.addEventListener("click", function () {
       break;
   }
 });
+
 derecha.addEventListener("click", dere);
 izquierda.addEventListener("click", izqui);
+reiniciar.addEventListener("click", function () {
+  location.reload();
+});
 //rotar.addEventListener("click", rota);
