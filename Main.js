@@ -150,9 +150,7 @@ function empieza() {
     keyleft = false;
     keyright = false;
 
-    // Recarga la página a los 10 segundos para volver a jugar
-
-    setInterval("location.reload()", 10000);
+    reiniciar.innerHTML="Jugar de nuevo";
     // Si el que esta a la derecha es azul que no te deje mover a la derecha
   } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
     derecha.style.visibility = "hidden";
