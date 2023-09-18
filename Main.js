@@ -4,6 +4,9 @@ derecha = document.getElementById("derecha");
 //rotar = document.getElementById("rotar");
 tetris = document.getElementById("tetris");
 reiniciar = document.getElementById("reiniciar");
+pausar = document.getElementById("pause");
+
+pause = false;
 
 keyleft = true;
 keyright = true;
@@ -24,6 +27,8 @@ fila1 = 0;
 fila2 = 0;
 fila3 = 1;
 fila4 = 2;
+//Oculta el boton de pausa
+pausar.style.visibility = "hidden";
 
 //Crea la tabla
 tabla = document.createElement("table");
@@ -42,6 +47,8 @@ for (var i = 0; i < 10; i++) {
 
 //Funcion pone la primera figura cuando se pulsa el boton de empezar
 function empieza() {
+  pausar.style.visibility = "visible";
+
   aptoMover = true;
 
   //Declarar las variables para que no de errores con los if
@@ -67,6 +74,7 @@ function empieza() {
   derecha.style.visibility = "visible";
   //rotar.style.visibility = "visible";
   izquierda.style.visibility = "visible";
+  pausar.style.visibility = "visible";
 
   //Al principio simepre se puede mover
   keyleft = true;
@@ -136,6 +144,7 @@ function empieza() {
     //rotar.style.visibility = "hidden";
     izquierda.style.visibility = "hidden";
     aptoMover = false;
+    pausar.style.visibility = "hidden";
 
     //Desactiva las fechas de teclado
     keyleft = false;
@@ -153,6 +162,7 @@ function empieza() {
     keyleft = false;
   }
 }
+
 // Desplaza la figura a la derecha
 function dere() {
   color1 = "rgb(0, 0, 0)";
@@ -308,6 +318,7 @@ function aba() {
     }
   }
 }
+
 // Función para rotar la figura
 
 function rota() {
@@ -430,6 +441,23 @@ document.addEventListener("keydown", function (event) {
 });
 */
 
+//Controlar que se pulsa el boton de pause
+pausar.addEventListener("click", function () {
+  if (pause == false) {
+    derecha.style.visibility = "hidden";
+    izquierda.style.visibility = "hidden ";
+    pause = true;
+    keyleft = false;
+    keyright = false;
+  } else {
+    derecha.style.visibility = "visible";
+    izquierda.style.visibility = "visible";
+    pause = false;
+    keyleft = true;
+    keyright = true;
+  }
+});
+
 // Para manerjarlo con los botones
 
 boton.addEventListener("click", function () {
@@ -438,33 +466,34 @@ boton.addEventListener("click", function () {
   indice = select.selectedIndex;
   opcion = select.options[indice];
   nivel = opcion.value;
+
   empieza();
   boton.style.visibility = "hidden";
   switch (nivel) {
     case "facil":
       setInterval(function () {
-        if (aptoMover == true) {
+        if (aptoMover == true && pause == false) {
           aba();
         }
       }, 1000);
       break;
     case "media":
       setInterval(function () {
-        if (aptoMover == true) {
+        if (aptoMover == true && pause == false) {
           aba();
         }
       }, 500);
       break;
     case "dificil":
       setInterval(function () {
-        if (aptoMover == true) {
+        if (aptoMover == true && pause == false) {
           aba();
         }
       }, 200);
       break;
     case "extrema":
       setInterval(function () {
-        if (aptoMover == true) {
+        if (aptoMover == true && pause == false) {
           aba();
         }
       }, 90);

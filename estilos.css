@@ -88,9 +88,15 @@ h2 {
   animation: tetris 10s linear infinite; /* Animación */
 }
 
-#firma{
+#firma {
   position: fixed;
   bottom: 1%;
   right: 1%;
   font-family: cursive;
+}
+
+#pause {
+  margin-top: 0.5%;
+  height: 2%;
+  width: 2%;
 }
