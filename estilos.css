@@ -5,7 +5,7 @@ div {
 
 td {
   border: 1px solid;
-  padding: 20px; /* Añade un espacio interno para que la tabla sea más grande */
+  padding: 14px; /* Añade un espacio interno para que la tabla sea más grande */
 }
 
 #botones {

@@ -33,10 +33,10 @@ pausar.style.visibility = "hidden";
 tabla = document.createElement("table");
 
 //Mediante el bucle crea 10 filas
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 21; i++) {
   fila = document.createElement("tr");
   //Mediante este bulce crea 10 columnas dentro de las filas
-  for (var j = 0; j < 10; j++) {
+  for (var j = 0; j < 14; j++) {
     columna = document.createElement("td");
     fila.appendChild(columna);
   }
@@ -101,7 +101,7 @@ function empieza() {
 
   //Este if tiene las mismas condiciones que el if del metodo bajar y si en esta caso cuando se le da a empezar aparece la ficha arriba sin dejar movernos es porque se ha acabado
 
-  if (columna4 < 9) {
+  if (columna4 < 20) {
     //Para cada uno ya que no me deja poner mas de una celda en los estilos
     estilo1 = window.getComputedStyle(tabla.rows[columna1 + 2].cells[fila1]);
     color1 = estilo1.backgroundColor;
@@ -116,7 +116,7 @@ function empieza() {
     color4 = estilo4.backgroundColor;
   }
 
-  if (fila4 < 9) {
+  if (fila4 < 13) {
     //No me deje mover a la derecha
     estilo5 = window.getComputedStyle(tabla.rows[columna1].cells[fila1 + 1]);
     color5 = estilo5.backgroundColor;
@@ -134,7 +134,7 @@ function empieza() {
   }
 
   if (
-    columna4 == 9 ||
+    columna4 == 20 ||
     color1 === "rgb(0, 0, 255)" ||
     color2 === "rgb(0, 0, 255)" ||
     color3 === "rgb(0, 0, 255)" ||
@@ -175,7 +175,7 @@ function dere() {
 
   switch (numRotado) {
     case 0:
-      if (fila4 < 9) {
+      if (fila4 < 13) {
         fila1 = fila1 + 1;
         fila2 = fila2 + 1;
         fila3 = fila3 + 1;
@@ -208,7 +208,7 @@ function dere() {
       }
       break;
     case 1:
-      if (fila2 < 9) {
+      if (fila2 < 13) {
         fila1 = fila1 + 1;
         fila2 = fila2 + 1;
         fila3 = fila3 + 1;
@@ -241,7 +241,7 @@ function dere() {
       }
       break;
     case 2:
-      if (fila2 < 9) {
+      if (fila2 < 13) {
         fila1 = fila1 + 1;
         fila2 = fila2 + 1;
         fila3 = fila3 + 1;
@@ -274,7 +274,7 @@ function dere() {
       }
       break;
     case 3:
-      if (fila2 < 9) {
+      if (fila2 < 13) {
         fila1 = fila1 + 1;
         fila2 = fila2 + 1;
         fila3 = fila3 + 1;
@@ -488,7 +488,7 @@ function aba() {
   color7 = "";
   color8 = "";
 
-  if (columna4 < 9) {
+  if (columna4 < 20) {
     columna1 = columna1 + 1;
     columna2 = columna2 + 1;
     columna3 = columna3 + 1;
@@ -504,7 +504,7 @@ function aba() {
     tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
     tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
     if (numRotado == 0) {
-      if (columna4 < 9) {
+      if (columna4 < 20) {
         //Para cada uno ya que no me deja poner mas de una celda en los estilos
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1 + 2].cells[fila1]
@@ -527,7 +527,7 @@ function aba() {
         color4 = estilo4.backgroundColor;
       }
 
-      if (fila4 < 9) {
+      if (fila4 < 13) {
         //No me deje mover a la derecha
         estilo5 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila1 + 1]
@@ -553,7 +553,7 @@ function aba() {
       }
 
       if (
-        columna4 == 9 ||
+        columna4 == 20 ||
         color1 === "rgb(0, 0, 255)" ||
         color2 === "rgb(0, 0, 255)" ||
         color3 === "rgb(0, 0, 255)" ||
@@ -581,7 +581,7 @@ function aba() {
       ///////////////////////////////////////////////////////////////////////////////////////////////
       ////////  NO DEJE MOVER CON LA POSICION ROTADO 1 ///////////////////////////////
     } else if (numRotado == 1) {
-      if (columna4 < 9) {
+      if (columna4 < 20) {
         //Para cada uno ya que no me deja poner mas de una celda en los estilos
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1 + 2].cells[fila1]
@@ -604,7 +604,7 @@ function aba() {
         color4 = estilo4.backgroundColor;
       }
 
-      if (fila2 < 9) {
+      if (fila2 < 13) {
         //No me deje mover a la derecha
         estilo5 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila2 + 1]
@@ -634,7 +634,7 @@ function aba() {
         color9 = estilo9.backgroundColor;
       }
 
-      if (columna4 == 9 || color4 === "rgb(0, 0, 255)") {
+      if (columna4 == 20 || color4 === "rgb(0, 0, 255)") {
         derecha.style.visibility = "hidden";
         //rotar.style.visibility = "hidden";
         izquierda.style.visibility = "hidden";
@@ -662,7 +662,7 @@ function aba() {
       /////////////////////////////////////////////////////////////
       ////////////////// PARA LA POSICIÓN ROTADA 2 ////////////////
     } else if (numRotado == 2) {
-      if (columna4 < 9) {
+      if (columna4 < 20) {
         //Para cada uno ya que no me deja poner mas de una celda en los estilos
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1 + 1].cells[fila1]
@@ -685,7 +685,7 @@ function aba() {
         color4 = estilo4.backgroundColor;
       }
 
-      if (fila2 < 9) {
+      if (fila2 < 13) {
         //No me deje mover a la derecha
         estilo5 = window.getComputedStyle(
           tabla.rows[columna4].cells[fila4 + 1]
@@ -711,7 +711,7 @@ function aba() {
       }
 
       if (
-        columna4 == 9 ||
+        columna4 == 20 ||
         color4 === "rgb(0, 0, 255)" ||
         color1 === "rgb(0, 0, 255)" ||
         color3 === "rgb(0, 0, 255)"
@@ -738,7 +738,7 @@ function aba() {
       ///////////////////////////////////////////////////////////////////////////
       //////////////////////// PARA LA POSICICIÓN ROTADO 3 //////////////////////
     } else if (numRotado == 3) {
-      if (columna4 < 9) {
+      if (columna4 < 20) {
         //Para cada uno ya que no me deja poner mas de una celda en los estilos
         estilo1 = window.getComputedStyle(
           tabla.rows[columna4 + 1].cells[fila4]
@@ -751,7 +751,7 @@ function aba() {
         color9 = estilo9.backgroundColor;
       }
 
-      if (fila2 < 9) {
+      if (fila2 < 13) {
         //No me deje mover a la derecha
         estilo5 = window.getComputedStyle(
           tabla.rows[columna2].cells[fila2 + 1]
@@ -787,7 +787,7 @@ function aba() {
       }
 
       if (
-        columna4 == 9 ||
+        columna4 == 20 ||
         color1 === "rgb(0, 0, 255)" ||
         color9 === "rgb(0, 0, 255)"
       ) {
@@ -924,21 +924,21 @@ function rota() {
 //Mueve a la izquierda
 
 document.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowLeft" && columna4 < 9 && keyleft == true) {
+  if (event.key == "ArrowLeft" && columna4 < 20 && keyleft == true) {
     izqui();
   }
 });
 
 //Mueve a la derecha
 document.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowRight" && columna4 < 9 && keyright == true) {
+  if (event.key == "ArrowRight" && columna4 < 20 && keyright == true) {
     dere();
   }
 });
 //Rota
 
 document.addEventListener("keydown", function (event) {
-  if (event.key == " " && columna4 < 9 && keyleft == true && keyright == true) {
+  if (event.key == " " && columna4 < 20 && keyleft == true && keyright == true) {
     rota();
   }
 });
