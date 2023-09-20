@@ -142,7 +142,7 @@ function empieza() {
     estilo8 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
     color8 = estilo8.backgroundColor;
   }
-console.log(color1);
+  console.log(color1);
   if (
     columna4 == 20 ||
     color1 != "rgba(0, 0, 0, 0)" ||
@@ -191,10 +191,14 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -224,10 +228,14 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -257,10 +265,14 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -290,10 +302,14 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -339,10 +355,14 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -373,10 +393,14 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -417,10 +441,14 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -451,10 +479,14 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor =
+          "rgba(0, 0, 0, 0)";
 
         tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
         tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -503,10 +535,14 @@ function aba() {
     columna3 = columna3 + 1;
     columna4 = columna4 + 1;
 
-    tabla.rows[columna1 - 1].cells[fila1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-    tabla.rows[columna2 - 1].cells[fila2].style.backgroundColor = "rgba(0, 0, 0, 0)";
-    tabla.rows[columna3 - 1].cells[fila3].style.backgroundColor = "rgba(0, 0, 0, 0)";
-    tabla.rows[columna4 - 1].cells[fila4].style.backgroundColor = "rgba(0, 0, 0, 0)";
+    tabla.rows[columna1 - 1].cells[fila1].style.backgroundColor =
+      "rgba(0, 0, 0, 0)";
+    tabla.rows[columna2 - 1].cells[fila2].style.backgroundColor =
+      "rgba(0, 0, 0, 0)";
+    tabla.rows[columna3 - 1].cells[fila3].style.backgroundColor =
+      "rgba(0, 0, 0, 0)";
+    tabla.rows[columna4 - 1].cells[fila4].style.backgroundColor =
+      "rgba(0, 0, 0, 0)";
 
     tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
     tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -848,8 +884,10 @@ function rota() {
       fila3 = fila3 - 1;
       fila4 = fila4 - 2;
 
-      tabla.rows[columna2 + 1].cells[fila2].style.backgroundColor = "rgba(0, 0, 0, 0)";
-      tabla.rows[columna2 + 1].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna2 + 1].cells[fila2].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
+      tabla.rows[columna2 + 1].cells[fila2 + 1].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
 
       tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
       tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -870,8 +908,10 @@ function rota() {
       fila3 = fila3 + 1; //2
       fila4 = fila4 + 2; //2
 
-      tabla.rows[columna3 + 1].cells[fila1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-      tabla.rows[columna3 + 2].cells[fila1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna3 + 1].cells[fila1].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
+      tabla.rows[columna3 + 2].cells[fila1].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
 
       tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
       tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
@@ -892,9 +932,12 @@ function rota() {
       fila3 = fila3; //1
       fila4 = fila4 - 1; //1
 
-      tabla.rows[columna1].cells[fila1 + 2].style.backgroundColor = "rgba(0, 0, 0, 0)";
-      tabla.rows[columna1 + 1].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-      tabla.rows[columna1].cells[fila2].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna1].cells[fila1 + 2].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
+      tabla.rows[columna1 + 1].cells[fila3 + 1].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
+      tabla.rows[columna1].cells[fila2].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
 
       tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
       tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
@@ -916,8 +959,10 @@ function rota() {
       fila3 = fila3; //1
       fila4 = fila4 + 1; //2
 
-      tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
-      tabla.rows[columna2 + 1].cells[fila3].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
+      tabla.rows[columna2 + 1].cells[fila3].style.backgroundColor =
+        "rgba(0, 0, 0, 0)";
 
       tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
       tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
