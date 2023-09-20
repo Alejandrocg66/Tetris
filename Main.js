@@ -240,6 +240,81 @@ function dere() {
         }
       }
       break;
+    case 2:
+      if (fila2 < 9) {
+        fila1 = fila1 + 1;
+        fila2 = fila2 + 1;
+        fila3 = fila3 + 1;
+        fila4 = fila4 + 1;
+
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "white";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "white";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "white";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "white";
+
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+        estilo3 = window.getComputedStyle(
+          tabla.rows[columna2].cells[fila2 + 1]
+        );
+        color3 = estilo3.backgroundColor;
+
+        estilo4 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 + 1]
+        );
+        color4 = estilo4.backgroundColor;
+
+        if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
+          derecha.style.visibility = "hidden";
+          keyright = false;
+        }
+      }
+      break;
+    case 3:
+      if (fila2 < 9) {
+        fila1 = fila1 + 1;
+        fila2 = fila2 + 1;
+        fila3 = fila3 + 1;
+        fila4 = fila4 + 1;
+
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "white";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "white";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "white";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "white";
+
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+        estilo3 = window.getComputedStyle(
+          tabla.rows[columna2].cells[fila2 + 1]
+        );
+        color3 = estilo3.backgroundColor;
+
+        estilo4 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 + 1]
+        );
+        color4 = estilo4.backgroundColor;
+
+        estilo1 = window.getComputedStyle(
+          tabla.rows[columna3].cells[fila3 + 1]
+        );
+        color1 = estilo1.backgroundColor;
+
+        if (
+          color3 === "rgb(0, 0, 255)" ||
+          color4 === "rgb(0, 0, 255)" ||
+          color1 === "rgb(0, 0, 255)"
+        ) {
+          derecha.style.visibility = "hidden";
+          keyright = false;
+        }
+      }
+      break;
   }
 }
 
@@ -311,6 +386,84 @@ function izqui() {
 
         estilo3 = window.getComputedStyle(
           tabla.rows[columna4].cells[fila4 - 1]
+        );
+        color3 = estilo3.backgroundColor;
+
+        if (
+          color1 === "rgb(0, 0, 255)" ||
+          color2 === "rgb(0, 0, 255)" ||
+          color3 === "rgb(0, 0, 255)"
+        ) {
+          izquierda.style.visibility = "hidden";
+          //Desactiva las fechas de teclado
+          keyleft = false;
+        }
+      }
+      break;
+
+    case 2:
+      if (fila1 > 0) {
+        fila1 = fila1 - 1;
+        fila2 = fila2 - 1;
+        fila3 = fila3 - 1;
+        fila4 = fila4 - 1;
+
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "white";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "white";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "white";
+
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+        estilo1 = window.getComputedStyle(
+          tabla.rows[columna1].cells[fila1 - 1]
+        );
+        color1 = estilo1.backgroundColor;
+
+        estilo2 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 - 1]
+        );
+        color2 = estilo2.backgroundColor;
+
+        if (color1 === "rgb(0, 0, 255)" || color2 === "rgb(0, 0, 255)") {
+          izquierda.style.visibility = "hidden";
+          //Desactiva las fechas de teclado
+          keyleft = false;
+        }
+      }
+      break;
+    case 3:
+      if (fila1 > 0) {
+        fila1 = fila1 - 1;
+        fila2 = fila2 - 1;
+        fila3 = fila3 - 1;
+        fila4 = fila4 - 1;
+
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "white";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "white";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "white";
+
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+
+        estilo1 = window.getComputedStyle(
+          tabla.rows[columna1].cells[fila1 - 1]
+        );
+        color1 = estilo1.backgroundColor;
+
+        estilo2 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 - 1]
+        );
+        color2 = estilo2.backgroundColor;
+
+        estilo3 = window.getComputedStyle(
+          tabla.rows[columna3].cells[fila3 - 1]
         );
         color3 = estilo3.backgroundColor;
 
@@ -426,7 +579,7 @@ function aba() {
       }
 
       ///////////////////////////////////////////////////////////////////////////////////////////////
-      ////////  NO DEJE MOVER CON LA POSICION DE HABER ROTADO UNA VEZ ///////////////////////////////
+      ////////  NO DEJE MOVER CON LA POSICION ROTADO 1 ///////////////////////////////
     } else if (numRotado == 1) {
       if (columna4 < 9) {
         //Para cada uno ya que no me deja poner mas de una celda en los estilos
@@ -503,6 +656,165 @@ function aba() {
         color9 === "rgb(0, 0, 255)"
       ) {
         console.log("entra aqui");
+        izquierda.style.visibility = "hidden";
+        keyleft = false;
+      }
+      /////////////////////////////////////////////////////////////
+      ////////////////// PARA LA POSICIÓN ROTADA 2 ////////////////
+    } else if (numRotado == 2) {
+      if (columna4 < 9) {
+        //Para cada uno ya que no me deja poner mas de una celda en los estilos
+        estilo1 = window.getComputedStyle(
+          tabla.rows[columna1 + 1].cells[fila1]
+        );
+        color1 = estilo1.backgroundColor;
+
+        estilo2 = window.getComputedStyle(
+          tabla.rows[columna2 + 1].cells[fila2]
+        );
+        color2 = estilo2.backgroundColor;
+
+        estilo3 = window.getComputedStyle(
+          tabla.rows[columna3 + 1].cells[fila3]
+        );
+        color3 = estilo3.backgroundColor;
+
+        estilo4 = window.getComputedStyle(
+          tabla.rows[columna4 + 1].cells[fila4]
+        );
+        color4 = estilo4.backgroundColor;
+      }
+
+      if (fila2 < 9) {
+        //No me deje mover a la derecha
+        estilo5 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 + 1]
+        );
+        color5 = estilo5.backgroundColor;
+
+        estilo6 = window.getComputedStyle(
+          tabla.rows[columna2].cells[fila2 + 1]
+        );
+        color6 = estilo6.backgroundColor;
+      }
+      //No me deje mover a la izquierda
+      if (fila1 > 0) {
+        estilo7 = window.getComputedStyle(
+          tabla.rows[columna1].cells[fila1 - 1]
+        );
+        color7 = estilo7.backgroundColor;
+
+        estilo8 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 - 1]
+        );
+        color8 = estilo8.backgroundColor;
+      }
+
+      if (
+        columna4 == 9 ||
+        color4 === "rgb(0, 0, 255)" ||
+        color1 === "rgb(0, 0, 255)" ||
+        color3 === "rgb(0, 0, 255)"
+      ) {
+        derecha.style.visibility = "hidden";
+        //rotar.style.visibility = "hidden";
+        izquierda.style.visibility = "hidden";
+        aptoMover = false;
+
+        //Desactiva las fechas de teclado
+        keyleft = false;
+        keyright = false;
+        //Cada vez que la pieza toca con otra por abajo saca otra pieza nueva
+        empieza();
+
+        // Si el que esta a la derecha es azul que no te deje mover a la derecha
+      } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+        derecha.style.visibility = "hidden";
+        keyright = false;
+      } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
+        izquierda.style.visibility = "hidden";
+        keyleft = false;
+      }
+      ///////////////////////////////////////////////////////////////////////////
+      //////////////////////// PARA LA POSICICIÓN ROTADO 3 //////////////////////
+    } else if (numRotado == 3) {
+      if (columna4 < 9) {
+        //Para cada uno ya que no me deja poner mas de una celda en los estilos
+        estilo1 = window.getComputedStyle(
+          tabla.rows[columna4 + 1].cells[fila4]
+        );
+        color1 = estilo1.backgroundColor;
+
+        estilo9 = window.getComputedStyle(
+          tabla.rows[columna1 + 1].cells[fila1]
+        );
+        color9 = estilo9.backgroundColor;
+      }
+
+      if (fila2 < 9) {
+        //No me deje mover a la derecha
+        estilo5 = window.getComputedStyle(
+          tabla.rows[columna2].cells[fila2 + 1]
+        );
+        color5 = estilo5.backgroundColor;
+
+        estilo6 = window.getComputedStyle(
+          tabla.rows[columna3].cells[fila3 + 1]
+        );
+        color6 = estilo6.backgroundColor;
+
+        estilo2 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 + 1]
+        );
+        color2 = estilo2.backgroundColor;
+      }
+      //No me deje mover a la izquierda
+      if (fila1 > 0) {
+        estilo7 = window.getComputedStyle(
+          tabla.rows[columna1].cells[fila1 - 1]
+        );
+        color7 = estilo7.backgroundColor;
+
+        estilo8 = window.getComputedStyle(
+          tabla.rows[columna3].cells[fila3 - 1]
+        );
+        color8 = estilo8.backgroundColor;
+
+        estilo3 = window.getComputedStyle(
+          tabla.rows[columna4].cells[fila4 - 1]
+        );
+        color3 = estilo3.backgroundColor;
+      }
+
+      if (
+        columna4 == 9 ||
+        color1 === "rgb(0, 0, 255)" ||
+        color9 === "rgb(0, 0, 255)"
+      ) {
+        derecha.style.visibility = "hidden";
+        //rotar.style.visibility = "hidden";
+        izquierda.style.visibility = "hidden";
+        aptoMover = false;
+
+        //Desactiva las fechas de teclado
+        keyleft = false;
+        keyright = false;
+        //Cada vez que la pieza toca con otra por abajo saca otra pieza nueva
+        empieza();
+
+        // Si el que esta a la derecha es azul que no te deje mover a la derecha
+      } else if (
+        color5 === "rgb(0, 0, 255)" ||
+        color6 === "rgb(0, 0, 255)" ||
+        color2 === "rgb(0, 0, 255)"
+      ) {
+        derecha.style.visibility = "hidden";
+        keyright = false;
+      } else if (
+        color7 === "rgb(0, 0, 255)" ||
+        color8 === "rgb(0, 0, 255)" ||
+        color3 === "rgb(0, 0, 255)"
+      ) {
         izquierda.style.visibility = "hidden";
         keyleft = false;
       }
