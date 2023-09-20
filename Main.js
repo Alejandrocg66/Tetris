@@ -34,6 +34,28 @@ for (var i = 0; i < 21; i++) {
 
 //Funcion pone la primera figura cuando se pulsa el boton de empezar
 function empieza() {
+  //Generar un numero aletorio para que cada pieza tenga un color diferente
+
+  numeroAleatorio = Math.floor(Math.random() * (6 - 1)) + 1;
+
+  switch (numeroAleatorio) {
+    case 1:
+      color = "blue";
+      break;
+    case 2:
+      color = "green";
+      break;
+    case 3:
+      color = "yellow";
+      break;
+    case 4:
+      color = "red";
+      break;
+    case 5:
+      color = "purple";
+      break;
+  }
+
   pausar.style.visibility = "visible";
 
   numRotado = 0;
@@ -82,10 +104,10 @@ function empieza() {
   fila3 = 6;
   fila4 = 7;
 
-  tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-  tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-  tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-  tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+  tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+  tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+  tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+  tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
   //Este if tiene las mismas condiciones que el if del metodo bajar y si en esta caso cuando se le da a empezar aparece la ficha arriba sin dejar movernos es porque se ha acabado
 
@@ -120,13 +142,13 @@ function empieza() {
     estilo8 = window.getComputedStyle(tabla.rows[columna2].cells[fila2 - 1]);
     color8 = estilo8.backgroundColor;
   }
-
+console.log(color1);
   if (
     columna4 == 20 ||
-    color1 === "rgb(0, 0, 255)" ||
-    color2 === "rgb(0, 0, 255)" ||
-    color3 === "rgb(0, 0, 255)" ||
-    color4 === "rgb(0, 0, 255)"
+    color1 != "rgba(0, 0, 0, 0)" ||
+    color2 != "rgba(0, 0, 0, 0)" ||
+    color3 != "rgba(0, 0, 0, 0)" ||
+    color4 != "rgba(0, 0, 0, 0)"
   ) {
     tetris.innerHTML = "Juego finalizado";
     derecha.style.visibility = "hidden";
@@ -141,10 +163,10 @@ function empieza() {
 
     reiniciar.innerHTML = "Jugar de nuevo";
     // Si el que esta a la derecha es azul que no te deje mover a la derecha
-  } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+  } else if (color5 != "rgba(0, 0, 0, 0)" || color6 != "rgba(0, 0, 0, 0)") {
     derecha.style.visibility = "hidden";
     keyright = false;
-  } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
+  } else if (color7 != "rgba(0, 0, 0, 0)" || color8 != "rgba(0, 0, 0, 0)") {
     izquierda.style.visibility = "hidden";
     keyleft = false;
   }
@@ -152,10 +174,10 @@ function empieza() {
 
 // Desplaza la figura a la derecha
 function dere() {
-  color1 = "rgb(0, 0, 0)";
-  color2 = "rgb(0, 0, 0)";
-  color3 = "rgb(0, 0, 0)";
-  color4 = "rgb(0, 0, 0)";
+  color1 = "rgba(0, 0, 0, 0)";
+  color2 = "rgba(0, 0, 0, 0)";
+  color3 = "rgba(0, 0, 0, 0)";
+  color4 = "rgba(0, 0, 0, 0)";
   estilo1 = "";
   estilo2 = "";
   estilo3 = "";
@@ -169,15 +191,15 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo3 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila1 + 1]
@@ -189,7 +211,7 @@ function dere() {
         );
         color4 = estilo4.backgroundColor;
 
-        if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
+        if (color3 != "rgba(0, 0, 0, 0)" || color4 != "rgba(0, 0, 0, 0)") {
           derecha.style.visibility = "hidden";
           keyright = false;
         }
@@ -202,15 +224,15 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo3 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila2 + 1]
@@ -222,7 +244,7 @@ function dere() {
         );
         color4 = estilo4.backgroundColor;
 
-        if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
+        if (color3 != "rgba(0, 0, 0, 0)" || color4 != "rgba(0, 0, 0, 0)") {
           derecha.style.visibility = "hidden";
           keyright = false;
         }
@@ -235,15 +257,15 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo3 = window.getComputedStyle(
           tabla.rows[columna2].cells[fila2 + 1]
@@ -255,7 +277,7 @@ function dere() {
         );
         color4 = estilo4.backgroundColor;
 
-        if (color3 === "rgb(0, 0, 255)" || color4 === "rgb(0, 0, 255)") {
+        if (color3 != "rgba(0, 0, 0, 0)" || color4 != "rgba(0, 0, 0, 0)") {
           derecha.style.visibility = "hidden";
           keyright = false;
         }
@@ -268,15 +290,15 @@ function dere() {
         fila3 = fila3 + 1;
         fila4 = fila4 + 1;
 
-        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 - 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo3 = window.getComputedStyle(
           tabla.rows[columna2].cells[fila2 + 1]
@@ -294,9 +316,9 @@ function dere() {
         color1 = estilo1.backgroundColor;
 
         if (
-          color3 === "rgb(0, 0, 255)" ||
-          color4 === "rgb(0, 0, 255)" ||
-          color1 === "rgb(0, 0, 255)"
+          color3 != "rgba(0, 0, 0, 0)" ||
+          color4 != "rgba(0, 0, 0, 0)" ||
+          color1 != "rgba(0, 0, 0, 0)"
         ) {
           derecha.style.visibility = "hidden";
           keyright = false;
@@ -317,15 +339,15 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila1 - 1]
@@ -337,7 +359,7 @@ function izqui() {
         );
         color2 = estilo2.backgroundColor;
 
-        if (color1 === "rgb(0, 0, 255)" || color2 === "rgb(0, 0, 255)") {
+        if (color1 != "rgba(0, 0, 0, 0)" || color2 != "rgba(0, 0, 0, 0)") {
           izquierda.style.visibility = "hidden";
           //Desactiva las fechas de teclado
           keyleft = false;
@@ -351,15 +373,15 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila1 - 1]
@@ -377,9 +399,9 @@ function izqui() {
         color3 = estilo3.backgroundColor;
 
         if (
-          color1 === "rgb(0, 0, 255)" ||
-          color2 === "rgb(0, 0, 255)" ||
-          color3 === "rgb(0, 0, 255)"
+          color1 != "rgba(0, 0, 0, 0)" ||
+          color2 != "rgba(0, 0, 0, 0)" ||
+          color3 != "rgba(0, 0, 0, 0)"
         ) {
           izquierda.style.visibility = "hidden";
           //Desactiva las fechas de teclado
@@ -395,15 +417,15 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila1 - 1]
@@ -415,7 +437,7 @@ function izqui() {
         );
         color2 = estilo2.backgroundColor;
 
-        if (color1 === "rgb(0, 0, 255)" || color2 === "rgb(0, 0, 255)") {
+        if (color1 != "rgba(0, 0, 0, 0)" || color2 != "rgba(0, 0, 0, 0)") {
           izquierda.style.visibility = "hidden";
           //Desactiva las fechas de teclado
           keyleft = false;
@@ -429,15 +451,15 @@ function izqui() {
         fila3 = fila3 - 1;
         fila4 = fila4 - 1;
 
-        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
-        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "white";
-        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "white";
-        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "white";
+        tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna2].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna3].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        tabla.rows[columna4].cells[fila4 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-        tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-        tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-        tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+        tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+        tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+        tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+        tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
         estilo1 = window.getComputedStyle(
           tabla.rows[columna1].cells[fila1 - 1]
@@ -455,9 +477,9 @@ function izqui() {
         color3 = estilo3.backgroundColor;
 
         if (
-          color1 === "rgb(0, 0, 255)" ||
-          color2 === "rgb(0, 0, 255)" ||
-          color3 === "rgb(0, 0, 255)"
+          color1 != "rgba(0, 0, 0, 0)" ||
+          color2 != "rgba(0, 0, 0, 0)" ||
+          color3 != "rgba(0, 0, 0, 0)"
         ) {
           izquierda.style.visibility = "hidden";
           //Desactiva las fechas de teclado
@@ -481,15 +503,15 @@ function aba() {
     columna3 = columna3 + 1;
     columna4 = columna4 + 1;
 
-    tabla.rows[columna1 - 1].cells[fila1].style.backgroundColor = "white";
-    tabla.rows[columna2 - 1].cells[fila2].style.backgroundColor = "white";
-    tabla.rows[columna3 - 1].cells[fila3].style.backgroundColor = "white";
-    tabla.rows[columna4 - 1].cells[fila4].style.backgroundColor = "white";
+    tabla.rows[columna1 - 1].cells[fila1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+    tabla.rows[columna2 - 1].cells[fila2].style.backgroundColor = "rgba(0, 0, 0, 0)";
+    tabla.rows[columna3 - 1].cells[fila3].style.backgroundColor = "rgba(0, 0, 0, 0)";
+    tabla.rows[columna4 - 1].cells[fila4].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-    tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-    tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-    tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-    tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+    tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+    tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+    tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+    tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
     if (numRotado == 0) {
       if (columna4 < 20) {
         //Para cada uno ya que no me deja poner mas de una celda en los estilos
@@ -541,10 +563,10 @@ function aba() {
 
       if (
         columna4 == 20 ||
-        color1 === "rgb(0, 0, 255)" ||
-        color2 === "rgb(0, 0, 255)" ||
-        color3 === "rgb(0, 0, 255)" ||
-        color4 === "rgb(0, 0, 255)"
+        color1 != "rgba(0, 0, 0, 0)" ||
+        color2 != "rgba(0, 0, 0, 0)" ||
+        color3 != "rgba(0, 0, 0, 0)" ||
+        color4 != "rgba(0, 0, 0, 0)"
       ) {
         derecha.style.visibility = "hidden";
         izquierda.style.visibility = "hidden";
@@ -557,10 +579,10 @@ function aba() {
         empieza();
 
         // Si el que esta a la derecha es azul que no te deje mover a la derecha
-      } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+      } else if (color5 != "rgba(0, 0, 0, 0)" || color6 != "rgba(0, 0, 0, 0)") {
         derecha.style.visibility = "hidden";
         keyright = false;
-      } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
+      } else if (color7 != "rgba(0, 0, 0, 0)" || color8 != "rgba(0, 0, 0, 0)") {
         izquierda.style.visibility = "hidden";
         keyleft = false;
       }
@@ -623,8 +645,8 @@ function aba() {
 
       if (
         columna4 == 20 ||
-        color4 === "rgb(0, 0, 255)" ||
-        color2 === "rgb(0, 0, 255)"
+        color4 != "rgba(0, 0, 0, 0)" ||
+        color2 != "rgba(0, 0, 0, 0)"
       ) {
         derecha.style.visibility = "hidden";
         //rotar.style.visibility = "hidden";
@@ -638,15 +660,14 @@ function aba() {
         empieza();
 
         // Si el que esta a la derecha es azul que no te deje mover a la derecha
-      } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+      } else if (color5 != "rgba(0, 0, 0, 0)" || color6 != "rgba(0, 0, 0, 0)") {
         derecha.style.visibility = "hidden";
         keyright = false;
       } else if (
-        color7 === "rgb(0, 0, 255)" ||
-        color8 === "rgb(0, 0, 255)" ||
-        color9 === "rgb(0, 0, 255)"
+        color7 != "rgba(0, 0, 0, 0)" ||
+        color8 != "rgba(0, 0, 0, 0)" ||
+        color9 != "rgba(0, 0, 0, 0)"
       ) {
-        console.log("entra aqui");
         izquierda.style.visibility = "hidden";
         keyleft = false;
       }
@@ -703,12 +724,11 @@ function aba() {
 
       if (
         columna4 == 20 ||
-        color4 === "rgb(0, 0, 255)" ||
-        color1 === "rgb(0, 0, 255)" ||
-        color3 === "rgb(0, 0, 255)"
+        color4 != "rgba(0, 0, 0, 0)" ||
+        color1 != "rgba(0, 0, 0, 0)" ||
+        color3 != "rgba(0, 0, 0, 0)"
       ) {
         derecha.style.visibility = "hidden";
-        //rotar.style.visibility = "hidden";
         izquierda.style.visibility = "hidden";
         aptoMover = false;
 
@@ -719,10 +739,10 @@ function aba() {
         empieza();
 
         // Si el que esta a la derecha es azul que no te deje mover a la derecha
-      } else if (color5 === "rgb(0, 0, 255)" || color6 === "rgb(0, 0, 255)") {
+      } else if (color5 != "rgba(0, 0, 0, 0)" || color6 != "rgba(0, 0, 0, 0)") {
         derecha.style.visibility = "hidden";
         keyright = false;
-      } else if (color7 === "rgb(0, 0, 255)" || color8 === "rgb(0, 0, 255)") {
+      } else if (color7 != "rgba(0, 0, 0, 0)" || color8 != "rgba(0, 0, 0, 0)") {
         izquierda.style.visibility = "hidden";
         keyleft = false;
       }
@@ -779,8 +799,8 @@ function aba() {
 
       if (
         columna4 == 20 ||
-        color1 === "rgb(0, 0, 255)" ||
-        color9 === "rgb(0, 0, 255)"
+        color1 != "rgba(0, 0, 0, 0)" ||
+        color9 != "rgba(0, 0, 0, 0)"
       ) {
         derecha.style.visibility = "hidden";
         //rotar.style.visibility = "hidden";
@@ -795,16 +815,16 @@ function aba() {
 
         // Si el que esta a la derecha es azul que no te deje mover a la derecha
       } else if (
-        color5 === "rgb(0, 0, 255)" ||
-        color6 === "rgb(0, 0, 255)" ||
-        color2 === "rgb(0, 0, 255)"
+        color5 != "rgba(0, 0, 0, 0)" ||
+        color6 != "rgba(0, 0, 0, 0)" ||
+        color2 != "rgba(0, 0, 0, 0)"
       ) {
         derecha.style.visibility = "hidden";
         keyright = false;
       } else if (
-        color7 === "rgb(0, 0, 255)" ||
-        color8 === "rgb(0, 0, 255)" ||
-        color3 === "rgb(0, 0, 255)"
+        color7 != "rgba(0, 0, 0, 0)" ||
+        color8 != "rgba(0, 0, 0, 0)" ||
+        color3 != "rgba(0, 0, 0, 0)"
       ) {
         izquierda.style.visibility = "hidden";
         keyleft = false;
@@ -828,13 +848,13 @@ function rota() {
       fila3 = fila3 - 1;
       fila4 = fila4 - 2;
 
-      tabla.rows[columna2 + 1].cells[fila2].style.backgroundColor = "white";
-      tabla.rows[columna2 + 1].cells[fila2 + 1].style.backgroundColor = "white";
+      tabla.rows[columna2 + 1].cells[fila2].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna2 + 1].cells[fila2 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-      tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-      tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-      tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-      tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+      tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+      tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+      tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+      tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
       numRotado++;
 
@@ -850,13 +870,13 @@ function rota() {
       fila3 = fila3 + 1; //2
       fila4 = fila4 + 2; //2
 
-      tabla.rows[columna3 + 1].cells[fila1].style.backgroundColor = "white";
-      tabla.rows[columna3 + 2].cells[fila1].style.backgroundColor = "white";
+      tabla.rows[columna3 + 1].cells[fila1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna3 + 2].cells[fila1].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-      tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-      tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-      tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-      tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+      tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+      tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+      tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+      tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
       numRotado++;
       break;
@@ -872,9 +892,9 @@ function rota() {
       fila3 = fila3; //1
       fila4 = fila4 - 1; //1
 
-      tabla.rows[columna1].cells[fila1 + 2].style.backgroundColor = "white";
-      tabla.rows[columna1 + 1].cells[fila3 + 1].style.backgroundColor = "white";
-      tabla.rows[columna1].cells[fila2].style.backgroundColor = "white";
+      tabla.rows[columna1].cells[fila1 + 2].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna1 + 1].cells[fila3 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna1].cells[fila2].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
       tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
       tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
@@ -896,13 +916,13 @@ function rota() {
       fila3 = fila3; //1
       fila4 = fila4 + 1; //2
 
-      tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "white";
-      tabla.rows[columna2 + 1].cells[fila3].style.backgroundColor = "white";
+      tabla.rows[columna1].cells[fila1 + 1].style.backgroundColor = "rgba(0, 0, 0, 0)";
+      tabla.rows[columna2 + 1].cells[fila3].style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-      tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-      tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-      tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-      tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+      tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+      tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+      tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+      tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
       numRotado = 0;
 
