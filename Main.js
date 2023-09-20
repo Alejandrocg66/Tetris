@@ -14,18 +14,6 @@ empezarNueva = true;
 
 numRotado = 0;
 
-//Posiciones inicales de las columnas
-columna1 = 0;
-columna2 = 1;
-columna3 = 1;
-columna4 = 1;
-
-//Posiciones iniciales de las filas
-
-fila1 = 0;
-fila2 = 0;
-fila3 = 1;
-fila4 = 2;
 //Oculta el boton de pausa
 pausar.style.visibility = "hidden";
 
@@ -89,10 +77,10 @@ function empieza() {
 
   //Posiciones iniciales de las filas
 
-  fila1 = 0;
-  fila2 = 0;
-  fila3 = 1;
-  fila4 = 2;
+  fila1 = 5;
+  fila2 = 5;
+  fila3 = 6;
+  fila4 = 7;
 
   tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
   tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
@@ -321,7 +309,6 @@ function dere() {
 // Desaplaza da figura a la izquierda
 
 function izqui() {
-  console.log("entra");
   switch (numRotado) {
     case 0:
       if (fila1 > 0) {
@@ -634,7 +621,11 @@ function aba() {
         color9 = estilo9.backgroundColor;
       }
 
-      if (columna4 == 20 || color4 === "rgb(0, 0, 255)") {
+      if (
+        columna4 == 20 ||
+        color4 === "rgb(0, 0, 255)" ||
+        color2 === "rgb(0, 0, 255)"
+      ) {
         derecha.style.visibility = "hidden";
         //rotar.style.visibility = "hidden";
         izquierda.style.visibility = "hidden";
@@ -938,7 +929,12 @@ document.addEventListener("keydown", function (event) {
 //Rota
 
 document.addEventListener("keydown", function (event) {
-  if (event.key == " " && columna4 < 20 && keyleft == true && keyright == true) {
+  if (
+    event.key == " " &&
+    columna4 < 20 &&
+    keyleft == true &&
+    keyright == true
+  ) {
     rota();
   }
 });
@@ -977,28 +973,28 @@ boton.addEventListener("click", function () {
         if (aptoMover == true && pause == false) {
           aba();
         }
-      }, 1000);
+      }, 500);
       break;
     case "media":
       setInterval(function () {
         if (aptoMover == true && pause == false) {
           aba();
         }
-      }, 500);
+      }, 275);
       break;
     case "dificil":
       setInterval(function () {
         if (aptoMover == true && pause == false) {
           aba();
         }
-      }, 200);
+      }, 100);
       break;
     case "extrema":
       setInterval(function () {
         if (aptoMover == true && pause == false) {
           aba();
         }
-      }, 90);
+      }, 75);
       break;
   }
 });

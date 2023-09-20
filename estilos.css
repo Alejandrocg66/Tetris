@@ -4,7 +4,7 @@ div {
 }
 
 td {
-  border: 1px solid;
+  border: 1px solid rgba(128, 128, 128, 0.5);
   padding: 14px; /* Añade un espacio interno para que la tabla sea más grande */
 }
 
@@ -19,7 +19,13 @@ body {
   background-color: rgb(0, 122, 126);
 }
 table {
+  border-collapse: collapse; /* Une los bordes de las celdas adyacentes */
+  border-spacing: 0; /* Elimina el espacio entre las celdas */
   background-color: white;
+  border-top: 5px solid #00f;
+  border-right: 5px solid #f00;
+  border-bottom: 5px solid #0f0;
+  border-left: 5px solid #ff0;
 }
 .tetris-effect {
   font-size: 3rem; /* Tamaño de fuente deseado */
