@@ -13,10 +13,23 @@ td {
   display: flex;
 }
 button {
-  margin: 1%;
+  background-color: transparent;
+  border: 2px solid #3498db; /* Borde del mismo color que el fondo */
+  border-radius: 5px; /* Añade esquinas redondeadas */
+  font-family: "Baloo", cursive; /* Cambio de fuente con estilo manuscrito */
+  font-weight: bold;
+  font-size: 1.2rem; /* Tamaño de fuente ligeramente más grande */
+  color: #3498db; /* Color de texto */
+  padding: 10px 20px; /* Espaciado interno para un aspecto más amigable */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+button:hover {
+  background-color: #3498db; /* Cambia el fondo al color del texto en hover */
+  color: white; /* Cambia el color del texto en hover */
 }
 body {
-  background-color: rgb(0, 122, 126);
+  background-color: rgba(0, 0, 0, 0.963);
 }
 table {
   border-collapse: collapse; /* Une los bordes de las celdas adyacentes */
@@ -75,6 +88,7 @@ select,
 option {
   position: absolute;
   margin-top: 25%;
+  font-size: 50px;
 }
 h2 {
   font-size: xx-large;
@@ -93,6 +107,22 @@ h2 {
   color: transparent; /* Hace que el color del texto sea transparente */
   animation: tetris 10s linear infinite; /* Animación */
 }
+
+@keyframes tetris {
+  0%, 100% {
+    text-shadow: -2px -2px 0 #ff0000, 2px -2px 0 #00ff00, -2px 2px 0 #0000ff, 2px 2px 0 #ffff00;
+  }
+  25% {
+    text-shadow: -2px -2px 0 #ff00ff, 2px -2px 0 #00ffff, -2px 2px 0 #ff0000, 2px 2px 0 #00ff00;
+  }
+  50% {
+    text-shadow: -2px -2px 0 #0000ff, 2px -2px 0 #ffff00, -2px 2px 0 #ff00ff, 2px 2px 0 #00ffff;
+  }
+  75% {
+    text-shadow: -2px -2px 0 #00ff00, 2px -2px 0 #ff00ff, -2px 2px 0 #0000ff, 2px 2px 0 #ffff00;
+  }
+}
+
 
 #firma {
   position: fixed;
