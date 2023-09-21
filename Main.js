@@ -174,6 +174,9 @@ function empieza() {
 
 // Desplaza la figura a la derecha
 function dere() {
+  //Si me muevo una a la derecha me voy a poder mover una a la izquierda
+  izquierda.style.visibility = "visible";
+  keyleft = true;
   color1 = "rgba(0, 0, 0, 0)";
   color2 = "rgba(0, 0, 0, 0)";
   color3 = "rgba(0, 0, 0, 0)";
@@ -347,6 +350,9 @@ function dere() {
 // Desaplaza da figura a la izquierda
 
 function izqui() {
+  //Si me muevo una a la izquierda me voy a poder mover una a la derecha
+  derecha.style.visibility = "visible";
+  keyright = true;
   switch (numRotado) {
     case 0:
       if (fila1 > 0) {
@@ -939,10 +945,10 @@ function rota() {
       tabla.rows[columna1].cells[fila2].style.backgroundColor =
         "rgba(0, 0, 0, 0)";
 
-      tabla.rows[columna1].cells[fila1].style.backgroundColor = "blue";
-      tabla.rows[columna2].cells[fila2].style.backgroundColor = "blue";
-      tabla.rows[columna3].cells[fila3].style.backgroundColor = "blue";
-      tabla.rows[columna4].cells[fila4].style.backgroundColor = "blue";
+      tabla.rows[columna1].cells[fila1].style.backgroundColor = color;
+      tabla.rows[columna2].cells[fila2].style.backgroundColor = color;
+      tabla.rows[columna3].cells[fila3].style.backgroundColor = color;
+      tabla.rows[columna4].cells[fila4].style.backgroundColor = color;
 
       numRotado++;
 
