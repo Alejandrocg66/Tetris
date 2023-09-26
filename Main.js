@@ -6,6 +6,7 @@ reiniciar = document.getElementById("reiniciar");
 pausar = document.getElementById("pause");
 
 pause = false;
+var intervalId;
 
 keyleft = true;
 keyright = true;
@@ -34,6 +35,7 @@ for (var i = 0; i < 21; i++) {
 
 //Funcion pone la primera figura cuando se pulsa el boton de empezar
 function empieza() {
+  clearInterval(intervalId);
   //Generar un numero aletorio para que cada pieza tenga un color diferente
 
   numeroAleatorio = Math.floor(Math.random() * (6 - 1)) + 1;
@@ -617,6 +619,7 @@ function aba() {
         //Desactiva las fechas de teclado
         keyleft = false;
         keyright = false;
+
         //Cada vez que la pieza toca con otra por abajo saca otra pieza nueva
         empieza();
 
@@ -1001,7 +1004,7 @@ document.addEventListener("keydown", function (event) {
 
 document.addEventListener("keydown", function (event) {
   if (
-    event.key == " " &&
+    event.key == "ArrowUp" &&
     columna4 < 20 &&
     keyleft == true &&
     keyright == true
@@ -1009,6 +1012,19 @@ document.addEventListener("keydown", function (event) {
     rota();
   }
 });
+
+  //Baja directamente
+  document.addEventListener("keydown", function (event) {
+    if (event.key == " ") {
+      // Iniciar el intervalo y almacenar su identificador
+      intervalId = setInterval(function () {
+        if (pause == false) {
+          aba();
+        }
+      }, 8);
+    }
+  });
+
 
 //Controlar que se pulsa el boton de pause
 pausar.addEventListener("click", function () {
