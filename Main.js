@@ -1013,18 +1013,17 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-  //Baja directamente
-  document.addEventListener("keydown", function (event) {
-    if (event.key == " ") {
-      // Iniciar el intervalo y almacenar su identificador
-      intervalId = setInterval(function () {
-        if (pause == false) {
-          aba();
-        }
-      }, 8);
-    }
-  });
-
+//Baja directamente
+document.addEventListener("keydown", function (event) {
+  if (event.key == " ") {
+    // Iniciar el intervalo y almacenar su identificador
+    intervalId = setInterval(function () {
+      if (pause == false) {
+        aba();
+      }
+    }, 8);
+  }
+});
 
 //Controlar que se pulsa el boton de pause
 pausar.addEventListener("click", function () {
