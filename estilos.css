@@ -139,3 +139,11 @@ h2 {
   height: 2%;
   width: 2%;
 }
+
+#controles{
+  height: 40%;
+  width: 20%;
+  position: absolute;
+  right: 7%;
+  top: 15%;
+}
