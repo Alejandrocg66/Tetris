@@ -1090,3 +1090,5 @@ izquierda.addEventListener("click", izqui);
 reiniciar.addEventListener("click", function () {
   location.reload();
 });
+
+
