@@ -29,7 +29,7 @@ button:hover {
   color: white; /* Cambia el color del texto en hover */
 }
 body {
-  background-color: rgba(0, 0, 0, 0.963);
+  background-image: linear-gradient(to right,blue,black);
 }
 table {
   
@@ -132,6 +132,7 @@ h2 {
   right: 1%;
   font-family: cursive;
   color: white;
+  
 }
 
 #pause {
